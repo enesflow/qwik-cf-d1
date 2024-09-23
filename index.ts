@@ -1,7 +1,8 @@
 import type { RequestEventBase } from "@builder.io/qwik-city";
+import type { D1Database } from "@cloudflare/workers-types";
 
 // Simplified getDB function, assuming a generic database type
-export function getDB<T>(e: RequestEventBase): T | undefined {
+export function getDB(e: RequestEventBase): D1Database | undefined {
   if (e.sharedMap.has("db")) {
     return e.sharedMap.get("db") as T;
   }
